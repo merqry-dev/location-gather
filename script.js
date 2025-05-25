@@ -61,7 +61,7 @@ document.querySelector("#location-form").addEventListener("submit", async (event
     console.log("Submitting data:", collectedData);
 
     try {
-        const response = await fetch("https://locationfunction.azurewebsites.net/api/location", {
+        const response = await fetch("https://locationfunction.azurewebsites.net/api/StoreLocationData", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(collectedData)
