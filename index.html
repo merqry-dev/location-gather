@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Location test</title>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <h1>Location information test while using Starlink</h1>
+        <p style="margin-left: 25%; margin-right: 25%;">This test was created for the purpose of gathering data on how
+            location information can be obtained while the
+            user is connected through Starlink. Please click the "Fetch the location data" and accept the location
+            gathering popup as well as answer the questioner. If possible open the site on a desktop computer / laptop
+            and a device with gps like a smartphone. The
+            data collected will be sent to an Azure database and after the experiment removed from there and stored
+            locally. The location information will be kept confidential, I will use it only to compare how different
+            methods for collecting location data differ between each other when run on different devices. The data
+            collected using GEOIP and location request is logged to console for inspection.</p>
+        <button id="find-me">Fetch the location data</button><br />
+        <form id="location-form">
+            <label for="location">Real location to compare with the data collected:</label><br>
+            <input type="text" id="location" name="location"><br>
+            <input type="radio" id="GPS" name="isGPS" value="The device has GPS">
+            <label for="GPS">The device has GPS</label><br>
+            <input type="radio" id="NoGPS" name="isGPS" value="The device has no GPS">
+            <label for="NoGPS">The device has no GPS</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
