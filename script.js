@@ -1,9 +1,7 @@
 let collectedData = {
-    ipContinent: null,
     ipCountry: null,
     ipCity: null,
-    ipLatitude: null,
-    ipLongitude: null,
+    ipLoc: null,
     ip: null,
     as: null,
     gpsLatitude: null,
@@ -14,19 +12,16 @@ let collectedData = {
 
 async function getIPGeolocationData() {
     try {
-        let url = 'http://ip-api.com/json/?fields=continent,country,city,lat,lon,as,query'
-        const ipRequest = new Request(url)
-        const response = await fetch(ipRequest, { cache: "no-store" })
-        const ipJsonDetails = await response.json()
-        console.log(ipJsonDetails)
+        const request = await fetch("https://ipinfo.io/json?token=8a466730a19a77")
+        const jsonResponse = await request.json()
 
-        collectedData.ipContinent = ipJsonDetails.continent;
-        collectedData.ipCountry = ipJsonDetails.country;
-        collectedData.ipCity = ipJsonDetails.city;
-        collectedData.ipLatitude = ipJsonDetails.latitude;
-        collectedData.ipLongitude = ipJsonDetails.longitude;
-        collectedData.as = ipJsonDetails.as;
-        collectedData.ip = ipJsonDetails.query;
+        console.log(jsonResponse)
+
+        collectedData.ipCountry = jsonResponse.country;
+        collectedData.ipCity = jsonResponse.city;
+        collectedData.ipLoc = jsonResponse.location;
+        collectedData.as = jsonResponse.org;
+        collectedData.ip = jsonResponse.ip;
     } catch (error) {
         console.error("IP Geolocation failed:", error);
     }
