@@ -19,7 +19,7 @@ async function getIPGeolocationData() {
 
         collectedData.ipCountry = jsonResponse.country;
         collectedData.ipCity = jsonResponse.city;
-        collectedData.ipLoc = jsonResponse.location;
+        collectedData.ipLoc = jsonResponse.loc;
         collectedData.as = jsonResponse.org;
         collectedData.ip = jsonResponse.ip;
     } catch (error) {
